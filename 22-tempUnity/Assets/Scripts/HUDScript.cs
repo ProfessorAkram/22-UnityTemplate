@@ -19,6 +19,7 @@ public class HUDScript : MonoBehaviour
 {
     /*** VARIABLES ***/
 
+    GameManager gm; //reference to game manager
 
     [Header("Stats Placement")]
     public TMP_Text levelCountTextbox; //textbox for level count
@@ -30,20 +31,48 @@ public class HUDScript : MonoBehaviour
     public TMP_Text TimerTextbox; //textbox for Timer display
     public TMP_Text fastestTimeTextbox; //textbox for the Fastest Time
 
+    //GM Data
+    private int level;
+    private int totalLevels;
+    private int lives;
+    private int score;
+    private int highscore;
+
 
 
     private void Start()
     {
-
+        gm = GameManager.GM; //find the game manager
+        //reference to levle info
+        level = gm.gameLevelsCount;
+        totalLevels = gm.gameLevels.Length;
 
     }//end Start
 
     // Update is called once per frame
     void Update()
     {
-
+        GetGameStats();
+        SetHUD();
     }//end Update()
 
+    void GetGameStats()
+    {
+        lives = gm.Lives;
+        score = gm.Score;
+        highscore = gm.HighScore;
+    }//end GetGameStats()
 
+
+    void SetHUD()
+    {
+        //if texbox exsists update value
+        if (levelCountTextbox) { levelCountTextbox.text = "Level " + level + "/" + totalLevels; }
+        if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
+        if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
+        if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
+
+
+    }//end SetHUD()
 
 }
