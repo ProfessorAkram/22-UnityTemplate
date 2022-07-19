@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a71fe6c83b99cd4888d4add607898ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameState: 0
+  currentGameState: 6
   targetGameState: 0
   lastGameState: 0
   startScene: menu_scene
@@ -832,7 +832,7 @@ MonoBehaviour:
   winMessage: You Win
   endMsg: 
   recordHighScore: 0
-  defaultHighScore: 20
+  defaultHighScore: 1000
   defaultsLives: 3
   resetLostLevel: 1
   levelLost: 0
