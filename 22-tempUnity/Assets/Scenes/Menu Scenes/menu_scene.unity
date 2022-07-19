@@ -832,9 +832,9 @@ MonoBehaviour:
   winMessage: You Win
   endMsg: 
   recordHighScore: 0
-  defaultHighScore: 1000
+  defaultHighScore: 20
   defaultsLives: 3
-  resetLostLevel: 0
+  resetLostLevel: 1
   levelLost: 0
   levelBeat: 0
 --- !u!1 &1084432878

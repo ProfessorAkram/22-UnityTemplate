@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] //Access to private variables in editor
     private int defaultHighScore = 1000;
-    static public int highScore = 1000; // the default High Score
+    static public int highScore; // the default High Score
     public int HighScore { get { return highScore; } set { highScore = value; } }//access to private variable highScore [get/set methods]
 
 
@@ -211,7 +211,7 @@ public class GameManager : MonoBehaviour
 
                 //if end scene does not exists
                 if (endScene == null || endScene == "") { return; }
-
+                SetGameDefaults(); //rest game defaults 
                 SceneManager.LoadScene(endScene);//load the end scene 
                 break;
 
@@ -294,17 +294,12 @@ public class GameManager : MonoBehaviour
     void SetGameDefaults()
     {
         Debug.Log("Set Defaults");
+      
         //SET ALL GAME LEVEL VARIABLES FOR START OF GAME
 
-        //set default lives if current lives is null
-        if (currentLives == 0)
-        {
-            currentLives = defaultsLives; //set current lives to default (inital) value
-        }
-
-        lives = currentLives; //set the number of lives
+        lives = defaultsLives; //set the number of lives
         score = 0; //set starting score
-
+        Debug.Log(defaultHighScore);
         //set High Score
         if (recordHighScore) //if we are recording highscore
         {
